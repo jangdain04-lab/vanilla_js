@@ -1,0 +1,111 @@
+:root{
+    --primaryColor:green;
+    --errorColor:orange;
+
+}
+/* css에 변수를 선언할때는 :root{}이렇게 입력하고
+{}안에다가 key와 value값으로 값을 설정한다. key값은 아무렇게나 정해도 되고 value rkqtdms
+css값을 설정한다. */
+
+html{
+    box-sizing:border-box;
+    /*/박스모델(content,padding,border,margin) 설정
+    content-box는 영역의 크기를 지정할때 패딩과 테두디를 제외한 content 크기만을 계산한다.
+    border-box는 영역의 크기를 지정할때 패딩과 테두디를 포함한 content 크기를 계산한다.
+    일반적으로 인간은 컨텐츠크기를 지정할대 패딩과 테두리도 포함한다.*/
+
+}
+
+body{
+    display:flex;
+    align-items:center;
+    /*수직중앙정렬*/
+    justify-content:center;
+    min-height: 100vh;
+    background-color:white;
+
+}
+
+/*display:flex를 먹인 태그는 부모태그가 되는거고 div를 먹인 태그는 자식 태그가 된다.*/
+
+#wrapper{
+    width:420px;
+    /*box-shadow의 역할은 영역의 그림자를 설정한다.
+    0px은 수평방향의 그림자를 생성
+    4px은 수직방향으로 그림자를 생성
+    14px은 그림자의 블러값을 적용
+    rgba(0,0,0,0.2): 그림자 색깔 */
+    box-shadow:0px 4px 14px rgba(0,0,0,0.2);
+}
+
+h2{
+    text-align:center;
+    margin-top:20px;
+}
+
+.inputGroup{
+    padding: 8px 12px;
+    /* 8px은 패딩을 위아래로 8px씩
+    12px은 패딩을 왼쪽오른쪽으로 12px씩 준다. */
+
+}
+.inputGroup label{
+    display:block;
+    padding:12px 0;
+}
+
+.inputGroup input{
+    display:block;
+    /* display:block은 영역과 공간을 차지한다고 했다.
+    display:inline 영역과너비를 가지지 못한다. 그말은 즉 width와 height 속성 설정이 불가능하다.
+    display:inline-block은 영역과 너비를 가지면서 가로줄은 요소 하나가 다 차지하지 않고 가로줄로 여러요소가 쌓일 수 있다.  */
+    width:93%;
+    padding:12px;
+    border:2px solid #e2e2e2;
+    font-size:16px;
+}
+
+.inputGroup input:focus{
+    outline:none;
+    border-color:#777;
+    /* 테두리 색깔 지정 */
+}
+
+.inputGroup.valid input{
+    border-color: var(--primaryColor);
+    /* .valid는 자바스크립트로 가상의 css 선택자를 설정한다. */
+}
+
+.inputGroup.invalid input{
+    border-color: var(--errorColor);
+    /* .valid는 자바스크립트로 가상의 css 선택자를 설정한다. */
+    visibility: visible;
+}
+
+.inputGroup .helperText{
+    display:block;
+    padding-top:8px;
+    color: var(--errorColor);
+    visibility: hidden;
+}
+
+.inputGroup.invalid .helperText{
+    visibility: visible;
+}
+
+.inputGroup.valid .helperText{
+    visibility:hidden;
+}
+
+#wrapper button{
+    display:block;
+    width:85%;
+    margin: 0 auto;
+    height:50px;
+    margin-bottom:25px;
+    font-size:18px;
+    background-color:var(--primaryColor);
+    border:2px solid var(--primaryColor);
+    color:white;
+    cursor:pointer;
+}
